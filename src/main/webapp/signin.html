@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign In</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                
+        <!-- Bootstrap -->
+ 		<link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        
+    </head>
+   <body>
+
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="./">Home</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="signup.html">SignUp</a></li>
+					<li><a href="signin.html">SignIn</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<h1>Sign In</h1>
+			</div>
+			<form action="./servlet/signin" method="post" class="form-horizontal">
+				<div class="form-group">
+					<label for="email" class="col-xs-4 control-label">Email:
+					</label>
+					<div class="col-xs-6">
+						<input type="text" id="email" class="form-control" name="email" value="" autofocus>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-6 col-xs-offset-4">
+						<input type="submit" class="btn btn-primary" role="button" value="Submit" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
+	<script src="css/bootstrap/js/bootstrap.min.js"></script>                                
+    </body>
+</html>
