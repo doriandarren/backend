@@ -1,30 +1,31 @@
 package entities;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name=User.QUERY_USER_BY_EMAIL,
-				query = "SELECT u FROM User u WHERE u.email =:email"),
+	@NamedQuery(name=User.QUERY_USER_BY_EMAIL_PASSWORD,
+				query = "SELECT u "
+						+ "FROM User u "
+						+ "WHERE u.email = :email AND u.password = :password"),
 })
 
 public class User {
 	
-	public static final String QUERY_USER_BY_EMAIL="findByEmail"; 
+	public static final String QUERY_USER_BY_EMAIL_PASSWORD="findByEmail"; 
+	
+	//Provisional por ahora
+	public static final String TOKEN = "KLJIOM56473PO";
+	
 	
 	@Id
 	@GeneratedValue(strategy =GenerationType.AUTO)

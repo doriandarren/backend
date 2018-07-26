@@ -2,8 +2,6 @@ package com.backend.ws.rest.business.brand;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.inject.Inject;
-import javax.naming.NamingException;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,33 +10,37 @@ import com.backend.ws.rest.business.DAOInfBrand;
 import com.backend.ws.rest.business.tools.TestEjbHelper;
 import entities.Brand;
 
-public class TestCreate extends BaseTest {
+public class TestCreate extends BaseTestBrand {
 
 	@Inject
 	private DAOInfBrand service; 
+		
 	
 	@Before
-    public void before() throws NamingException{   
-    	EJBContainer ejbContainer = TestEjbHelper.getEjbContainer();  	
-    	 ejbContainer.getContext().bind("inject", this);    	
-    	 //service.removeAll(User.class);	
+    public void before() throws Exception{   
+		EJBContainer ejbContainer = TestEjbHelper.getEjbContainer(); 
+    	ejbContainer.getContext().bind("inject", this);    
+    	 //service.removeAll(User.class);
     }
 	
 	
 	@Test
-	public void testCreate() {
+	public void testCreate() {		
 		
-		Brand brand = getMockBrand();
-		service.createBrand(brand);
-		
+		Brand brand = getMockBrand();		
+		service.createBrand(brand);				
 		Brand brandFind = service.find(Brand.class, brand.getId());
-		
 		Assert.assertNotNull(brandFind);
-		Assert.assertEquals(NAME_CLIENT, brandFind.getName());
-		Assert.assertEquals(DESCRIPTION_CLIENT, brandFind.getDescription());
-		Assert.assertEquals(CREATE_AT_CLIENT, brandFind.getCreateAt());
-		Assert.assertEquals(UPDATE_AT_CLIENT,brandFind.getUpdateAt());
+		Assert.assertEquals(NAME_BRAND, brandFind.getName());
+		Assert.assertEquals(DESCRIPTION_BRAND, brandFind.getDescription());
+		//la comprobacion es ser mayor a la fecha de creación
+		//ya que en el metodo lo hace automaticamente
+		Assert.assertTrue(brandFind.getCreateAt().after(CREATE_AT_BRAND));
+		Assert.assertNull(brandFind.getUpdateAt());		
+		
+		//Assert.assertTrue(brand instanceof Brand);
 		
 	}
+
 	
 }

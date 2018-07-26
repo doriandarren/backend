@@ -1,6 +1,6 @@
 <Context>
     <Resource name="db_datasource" type="javax.sql.DataSource"
-              username="root" password=""
+              username="root" password="1245"
               driverClassName="com.mysql.jdbc.Driver" 
               url="jdbc:mysql://localhost:3306/dbapi"
             />

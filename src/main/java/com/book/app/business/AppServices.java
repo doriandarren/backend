@@ -33,7 +33,7 @@ public class AppServices implements InfAppServices  {
 			 		+ "El parametro User no debe ser null y debe tener un email valido "); 
 		 }		
 		 //TODO verificar formato correo 
-		List<User> list = entityManager.createNamedQuery(User.QUERY_USER_BY_EMAIL) 
+		List<User> list = entityManager.createNamedQuery(User.QUERY_USER_BY_EMAIL_PASSWORD) 
     			.setParameter("email",user.getEmail()).getResultList(); 		
 		if(list!=null && list.size()>0){
 			throw new EntityExistsException("El User tiene un email que esta registrado"); 
@@ -46,7 +46,7 @@ public class AppServices implements InfAppServices  {
 	@Override
 	public User signInUser(@NotNull String email) { 
 		
-		List<User> list = entityManager.createNamedQuery(User.QUERY_USER_BY_EMAIL) 
+		List<User> list = entityManager.createNamedQuery(User.QUERY_USER_BY_EMAIL_PASSWORD) 
     			.setParameter("email",email).getResultList(); 		 
 		//TODO verificar formato correo 		
 		if(list==null || list.size()!=1){

@@ -21,7 +21,6 @@ import entities.Brand;
  * es un simple webservlet y almacena los datos en la bd
  * se injecta mediante un contenedor de EJB 
  * @author Dorian
- *
  */
 
 @WebServlet("/myServlet")

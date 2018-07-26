@@ -1,5 +1,6 @@
 package com.backend.ws.rest.business;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -21,6 +22,7 @@ public class DAOBrand implements DAOInfBrand{
 		if(brand==null) {
 			throw new IllegalArgumentException("> El client no puede ser null");
 		}
+		brand.setCreateAt(new Date());
 		entityManager.persist(brand);	
 	}
 
@@ -46,13 +48,14 @@ public class DAOBrand implements DAOInfBrand{
 			brandOld.setDescription(brand.getDescription());
 		}
 
-		if (brand.getCreateAt() != null && !brand.getCreateAt().equals(null)) {
+		/*if (brand.getCreateAt() != null && !brand.getCreateAt().equals(null)) {
 			brandOld.setCreateAt(brand.getCreateAt());
 		}
 
 		if (brand.getUpdateAt() != null && !brand.getUpdateAt().equals(null)) {
 			brandOld.setUpdateAt(brand.getUpdateAt());
-		}
+		}*/
+		brandOld.setUpdateAt(new Date());
 		
 	}
 
@@ -81,8 +84,6 @@ public class DAOBrand implements DAOInfBrand{
         cq.select(cq.from(Book.class));
         return entityManager.createQuery(cq).getResultList();
     }*/
-	
-	
 	
 	
 	/**

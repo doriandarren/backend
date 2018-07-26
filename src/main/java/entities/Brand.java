@@ -10,6 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
 @Entity
 @NamedQuery(name = Brand.QUERY_CLIENT_ALL, 
 				query = "SELECT c FROM Brand c")

@@ -1,76 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>Simple Servlet Application</display-name>
+  
+  <!--  <filter>
+	<filter-name>CORSFilter</filter-name>
+	<filter-class>com.backend.ws.rest.utils.CORSFilter</filter-class>
+  </filter>
+  <filter-mapping>
+	<filter-name>CORSFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+  </filter-mapping>-->
+  
   <servlet>
-    <servlet-name>ServletEditImage</servlet-name>
-    <servlet-class>com.book.app.servlet.ServletEditImage</servlet-class>
-    <load-on-startup>1</load-on-startup>
+      <servlet-name>Jersey Web Application</servlet-name>
+      <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+      <init-param>
+          <param-name>com.sun.jersey.config.property.packages</param-name>
+          <param-value>com.backend.ws.rest.service</param-value>
+      </init-param>
+      <!-- <init-param>
+		  <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
+		  <param-value>com.backend.ws.rest.utils.CORSFilter</param-value>
+	  </init-param>  -->
+      <init-param>
+          <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+          <param-value>true</param-value>
+      </init-param>	
+      <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ServletEditImage</servlet-name>
-    <url-pattern>/servlet/image</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ServletServerImages</servlet-name>
-    <servlet-class>com.book.app.servlet.ServletServerImages</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletServerImages</servlet-name>
-    <url-pattern>/servlet/image/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ServletSignIn</servlet-name>
-    <servlet-class>com.book.app.servlet.ServletSignIn</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletSignIn</servlet-name>
-    <url-pattern>/servlet/signin</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ServletSignUp</servlet-name>
-    <servlet-class>com.book.app.servlet.ServletSignUp</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletSignUp</servlet-name>
-    <url-pattern>/servlet/signup</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ServletHome</servlet-name>
-    <servlet-class>com.book.app.servlet.ServletHome</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletHome</servlet-name>
-    <url-pattern>/servlet/home</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ServletLogout</servlet-name>
-    <servlet-class>com.book.app.servlet.ServletLogout</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletLogout</servlet-name>
-    <url-pattern>/servlet/logout</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ServletUpSetCollection</servlet-name>
-    <servlet-class>com.book.app.servlet.ServletUpSetCollection</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletUpSetCollection</servlet-name>
-    <url-pattern>/servlet/addcollection</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ServletRemoveCollection</servlet-name>
-    <servlet-class>com.book.app.servlet.ServletRemoveCollection</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletRemoveCollection</servlet-name>
-    <url-pattern>/servlet/removecollection</url-pattern>
+      <servlet-name>Jersey Web Application</servlet-name>
+      <url-pattern>/_ah/api/*</url-pattern>
   </servlet-mapping>
 </web-app>
