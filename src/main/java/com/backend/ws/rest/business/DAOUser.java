@@ -7,12 +7,10 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
-import javax.validation.constraints.NotNull;
-
 import entities.User;
 
+
 @Stateless
-@SuppressWarnings("unchecked")
 public class DAOUser implements DAOInfUser{
 	
 	@PersistenceContext(unitName="persistence-unit")
@@ -72,6 +70,7 @@ public class DAOUser implements DAOInfUser{
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T> List<T> findAll(Class<T> clazz) {
 		String className = clazz.getSimpleName();
@@ -80,11 +79,12 @@ public class DAOUser implements DAOInfUser{
 	}
 
 		
-	
+	@SuppressWarnings("unchecked")
 	@Override
 	public User signIn(User user) {
 		User u = null;
 		user.setValidUser(false);
+		
 		
 		List<User> list = entityManager
 									.createNamedQuery(User.QUERY_USER_BY_EMAIL_PASSWORD)

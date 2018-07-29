@@ -18,7 +18,6 @@ import javax.persistence.TemporalType;
 						+ "FROM User u "
 						+ "WHERE u.email = :email AND u.password = :password"),
 })
-
 public class User {
 	
 	public static final String QUERY_USER_BY_EMAIL_PASSWORD="findByEmail"; 

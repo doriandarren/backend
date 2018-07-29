@@ -74,7 +74,7 @@
     
     <!-- Jersey -->
     
-	<!--  
+	
 	<dependency>
 	    <groupId>com.sun.jersey</groupId>
 	    <artifactId>jersey-core</artifactId>
@@ -92,7 +92,7 @@
 	    <artifactId>jersey-servlet</artifactId>
 	    <version>${version.jersey}</version>
 	</dependency>
-	-->
+	
 	
     <!-- END Jersey -->
     
